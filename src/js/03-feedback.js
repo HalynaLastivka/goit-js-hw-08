@@ -26,13 +26,17 @@ function changeFields(event) {
 
 
 
-function sendBtn() {
-      event.preventDefault();
-        const saveField = localStorage.getItem("feedback-form-state");
+function sendBtn(event) {
+    event.preventDefault();
+    const saveField = localStorage.getItem("feedback-form-state");
+    
     if (saveField) {
         const parceSaveField = JSON.parse(saveField);
         console.log(parceSaveField);
         localStorage.removeItem('feedback-form-state');
+        formEl.elements.email.value = '';
+        formEl.elements.message.value = '';
+
     }
 }
 
